@@ -155,6 +155,8 @@ body {
     font-weight: 700;
 }
 
+
+
 #section2 {
     width: 1440px;
     margin: 0 auto;
@@ -186,7 +188,7 @@ body {
 
 .rightbox h2 {
     font-size: 48px;
-    f: 50px;
+    padding-bottom: 50px;
 }
 
 .rightbox h2 span {
@@ -221,6 +223,20 @@ body {
 
 }
 
+/* 기본 상태에서 요소는 숨김 */
+.hidden {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* 요소가 보여질 때 적용되는 클래스 */
+.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
 
 #section3 {
     background-image: url(../images/banner.png);
@@ -243,7 +259,7 @@ body {
 #section4 {
     width: 100%;
     background-color: #0e0e0e;
-f: 200px;
+padding-bottom: 200px;
 }
 
 .trophy {
@@ -374,7 +390,7 @@ width: 70%;
 .swiper {
     width: 100%;
     padding-top: 50px;
-    f: 50px;
+    padding-bottom: 50px;
   }
 
   .swiper-slide {
@@ -509,7 +525,7 @@ width: 70%;
 
     .m_gnb li a {
         display: block;
-        f: 50px;
+        padding-bottom: 50px;
     }
 
 
@@ -562,7 +578,7 @@ width: 70%;
         width: 100%;
         text-align: center;
         position: relative;
-        f: 150px;
+        padding-bottom: 150px;
 
     }
 
@@ -616,7 +632,7 @@ width: 70%;
 
     #section4 {
         width: 100%;
-        f: 100px;
+        padding-bottom: 100px;
         background-color: #d8d8d8;
 
     }
@@ -676,7 +692,7 @@ width: 70%;
     height: 100%;
     justify-content: center;
     flex-wrap: wrap;
-    f: 100px;
+    padding-bottom: 100px;
    
 }
 
@@ -805,6 +821,21 @@ display: block;
     height: auto;
 }
 
+@keyframes scaleEffect {
+    0% {
+        transform: scale(1); /* 원래 크기 */
+    }
+    50% {
+        transform: scale(0.8); /* 80%로 축소 */
+    }
+    100% {
+        transform: scale(1); /* 다시 원래 크기 */
+    }
+}
+
+.m_footer .img_tag img {
+    animation: scaleEffect 20s ease-in-out infinite; /* 2초마다 자연스럽게 반복 */
+}
 
 
 }
