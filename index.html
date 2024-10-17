@@ -481,6 +481,75 @@
             },
         });
     </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+    // Intersection Observer 설정
+    const observerOptions = {
+        threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('show');
+                observer.unobserve(entry.target); // 이미 보여진 요소는 다시 감시할 필요가 없으므로 unobserve
+            }
+        });
+    }, observerOptions);
+
+    // section1의 intro_content에 대한 감시 설정
+    const introContent = document.querySelector('.intro_content');
+    if (introContent) {
+        introContent.classList.add('hidden'); // 초기 상태에서 숨김
+        observer.observe(introContent);
+    }
+
+    // section2의 contentbox에 대한 감시 설정 (순차적 애니메이션 적용)
+    const contentBoxes = document.querySelectorAll('#section2 .contentbox');
+    contentBoxes.forEach((box, index) => {
+        box.classList.add('hidden'); // 초기 상태에서 숨김
+        observer.observe(box);
+    });
+});
+
+    </script>
+    <script>
+   document.addEventListener("DOMContentLoaded", function() {
+    const logo = document.querySelector('.title.img_tag img'); // 로고 이미지 선택
+    const pElement = document.querySelector('.intro_content p');
+    const text = pElement.textContent.trim();
+    const letters = text.split('').map(letter => `<span>${letter}</span>`);
+    pElement.innerHTML = letters.join('');
+
+    // 로고와 텍스트에 숨김 클래스 추가
+    logo.classList.add('hidden');
+    pElement.classList.add('hidden');
+
+    // Intersection Observer 설정
+    const observerOptions = {
+        threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                if (entry.target === logo) {
+                    logo.classList.add('show'); // 로고 먼저 나타남
+                    observer.unobserve(logo); // 로고는 한 번만 나타나게 설정
+                } else if (entry.target === pElement) {
+                    pElement.classList.add('show'); // 텍스트가 이어서 나타남
+                    observer.unobserve(pElement); // 텍스트도 한 번만 나타나게 설정
+                }
+            }
+        });
+    }, observerOptions);
+
+    // 로고와 텍스트에 대해 감시 설정
+    observer.observe(logo);
+    observer.observe(pElement);
+});
+
+    </script>
 </body>
 
 </html>
