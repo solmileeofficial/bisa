@@ -534,27 +534,35 @@ body {
 }
 
 .pc_footer{
-    padding: 50px 0 0 50px;
+    padding: 50px 0 80px 50px;
     box-sizing: border-box;
 }
 
 .footer_link {
     width: 100%;
-    display: flex;
-    justify-content: space-between;
+    position: relative;
+}
+
+.footer_logo{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 9;
 }
 
 .footer_top {
+    display: flex;
     align-items: center;
     font-weight: 100;
-    display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: flex-end;
+    margin-right: 20px;
+    
+}
+.footer_top p{
+    margin-right: 30px;
 }
 
-.footer_top li {
-    padding-right: 10px;
-}
 
 .footer_img {
     width: 50px;
