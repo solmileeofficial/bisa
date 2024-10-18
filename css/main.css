@@ -798,9 +798,10 @@ body {
     }
 
     #section3 p {
-        width: 80%;
-        text-align: center;
-        padding-top: 50px;
+        width: 90%;
+        text-align: left;
+        padding-top: 130px;
+        padding-left: 50px;
     }
 
 
@@ -1084,31 +1085,40 @@ body {
         width: 100%;
     }
 
+.leftbox{
+    padding-bottom: 150px;
+}
+    
     .rightbox h2 {
-        font-size: 36px;
+        font-size: 24px;
     }
 
     .rightbox p {
-
         font-size: 14px;
         line-height: 24px;
         font-weight: 700;
     }
 
     .rightbox h2 span {
-        font-size: 24px;
+        font-size: 18px;
+
     }
 
     .leftbox h2 span {
         font-size: 12px;
+        
     }
 
     .rightbox ul {
-        font-size: 14px;
+        font-size: 12px;
 
     }
-    #section3 p{
-        padding-top: 50px;
+
+    #section3 p {
+        width: 90%;
+        text-align: center;
+        padding-top: 100px;
+        padding-left: 0;
     }
 
 
