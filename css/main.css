@@ -62,6 +62,7 @@ body {
     font-optical-sizing: auto;
     font-style: normal;
     font-size: 18px;
+    /* overflow-x: hidden; */
 }
 
 #top {
@@ -100,15 +101,14 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%; /* Change from 1920px to 100% */
-    height: 100%; /* Ensure it fills the container height */
+    width: 1920px;
 }
 
 #banner video {
+
     object-fit: cover;
-    width: 100%; /* Ensure video width is 100% */
-    height: 100%; /* Ensure video height is 100% */
 }
+
 .banner_content {
     color: #fff;
     position: absolute;
@@ -131,10 +131,13 @@ body {
 }
 
 #section1 {
+
     background-image: url(../images/bg.jpg);
     background-repeat: repeat;
     background-position: center;
+    background-size: cover;
     height: 500px;
+    width: 100%;
 }
 
 .intro {
@@ -164,6 +167,7 @@ body {
     margin: 0 auto;
 }
 
+
 .contentbox {
     width: 100%;
     justify-content: space-between;
@@ -187,6 +191,7 @@ body {
     width: 80%;
     text-align: left;
 }
+
 
 .rightbox h2 {
     font-size: 48px;
@@ -239,7 +244,6 @@ body {
 }
 
 
-
 #section3 {
     background-image: url(../images/banner.png);
     background-repeat: no-repeat;
@@ -249,23 +253,22 @@ body {
 }
 
 #section3 p {
-    width: 1440px;
-    margin: 0 auto;
     font-size: 50px;
     color: #fff;
-    padding-top: 150px;
+    padding: 150px 0 0 50px;
     font-weight: 900;
     opacity: 0.8;
+    box-sizing: border-box;
 }
 
 #section4 {
-
     background-color: #0e0e0e;
     padding: 100px 0;
 }
 
 .inner_section4 {
-    width: 1440px;
+    width: 100%;
+    max-width: 1440px;
     margin: 0 auto;
 }
 
@@ -283,21 +286,26 @@ body {
 .mclineup {
     width: 90%;
     margin: 0 auto;
-    justify-content: center; /* 중앙 정렬 */
-    align-items: center; /* 수직 중앙 정렬 */
-    gap: 50px; /* 요소들 사이에 일정한 간격 추가 */
+    justify-content: center;
+    /* 중앙 정렬 */
+    align-items: center;
+    /* 수직 중앙 정렬 */
+    gap: 50px;
+    /* 요소들 사이에 일정한 간격 추가 */
     color: #c2c2c2;
     text-transform: uppercase;
     text-align: center;
     display: flex;
-    flex-wrap: nowrap; /* 줄을 넘겨 배치 */
+    flex-wrap: nowrap;
+    /* 줄을 넘겨 배치 */
 }
 
 
 .mc_pic {
     margin: 100px 0;
     position: relative;
-    width: 30vw; /* 화면 너비의 30% */
+    width: 30vw;
+    /* 화면 너비의 30% */
     height: 30vw;
     border-radius: 50%;
     background-image: linear-gradient(#fff, #fff),
@@ -306,19 +314,25 @@ body {
     background-origin: border-box;
     background-clip: content-box, border-box;
     border: 3px solid transparent;
-    max-height: 500px; /* 최대 높이 제한 */
+    max-width: 480px;
+    /* 최대 너비 제한 */
+    min-width: 200px;
+    /* 최소 너비 설정 */
 }
 
 
 
 .mc_img {
     border-radius: 50%;
-    width: 100%; /* 부모의 100% 너비 */
-    height: 100%; /* 부모의 100% 높이 */
+    width: 100%;
+    /* 부모의 100% 너비 */
+    height: 100%;
+    /* 부모의 100% 높이 */
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    aspect-ratio: 1 / 1; /* 1:1 비율 유지 */
+    aspect-ratio: 1 / 1;
+    /* 1:1 비율 유지 */
 
 }
 
@@ -363,7 +377,8 @@ body {
 }
 
 /* 모든 트로피 이미지에 애니메이션 적용 */
-.trophy img, .m_footer_link .img_tag {
+.trophy img,
+.m_footer_link .img_tag {
     animation: scaleEffect 20s ease-in-out infinite;
     /* 2초마다 자연스럽게 반복 */
 }
@@ -372,7 +387,8 @@ body {
 /* 초기 상태: 요소가 투명 */
 .fade-in {
     opacity: 0;
-    transform: translateY(20px); /* 살짝 아래로 이동된 상태 */
+    transform: translateY(20px);
+    /* 살짝 아래로 이동된 상태 */
     transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
@@ -385,7 +401,8 @@ body {
 /* mc_pic의 순차적 애니메이션을 위해 추가 */
 .fade-in-left {
     opacity: 0;
-    transform: translateX(-20px); /* 왼쪽으로 이동된 상태 */
+    transform: translateX(-20px);
+    /* 왼쪽으로 이동된 상태 */
     transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
@@ -396,15 +413,18 @@ body {
 
 
 @keyframes fadeInOut {
-    0%, 100% {
+
+    0%,
+    100% {
         opacity: 0;
     }
+
     50% {
         opacity: 1;
     }
 }
 
-.mclineup_title{
+.mclineup_title {
     opacity: 0;
     animation: fadeInOut 10s ease-in-out infinite;
     text-shadow: 1px 1px 10px rgba(255, 255, 255, 0.5);
@@ -460,7 +480,7 @@ body {
 
 .nomi_logo img {
     width: 100%;
-
+    height: 100%;
 }
 
 .slide_wrap {
@@ -502,30 +522,32 @@ body {
 
 #footer {
     width: 100%;
-    padding: 20px 0 100px;
     background-color: #080808;
 }
 
 .inner_footer {
+ 
     width: 1440px;
     margin: 0 auto;
     color: #fff;
     font-size: 12px;
 }
 
+.pc_footer{
+    padding: 50px 0 0 50px;
+    box-sizing: border-box;
+}
+
 .footer_link {
-    padding-top: 20px;
+    width: 100%;
     display: flex;
     justify-content: space-between;
 }
 
 .footer_top {
     align-items: center;
-
     font-weight: 100;
-    width: 150px;
     display: flex;
-
     flex-wrap: wrap;
     justify-content: space-between;
 }
@@ -565,6 +587,44 @@ body {
 
 .fixedbox_wrap {
     display: none;
+}
+
+
+@media (max-width: 1456px) and (min-width: 1442px) {
+    body {
+        overflow-x: hidden;
+    }
+    
+}
+
+
+
+
+@media (max-width: 1441px) {
+    #header {
+        width: 100%;
+    }
+
+    .intro {
+        width: 100%;
+    }
+    #section2 {
+        width: 100%;
+    }
+    #section3 {
+        width: 100%;
+    }
+    .inner_section4 {
+        width: 100%;
+
+    }
+    .inner_footer {
+
+        width: 100%;
+
+    }
+
+
 }
 
 
@@ -660,7 +720,6 @@ body {
 
     #section2 {
         width: 100%;
-
     }
 
     .contentbox {
@@ -693,7 +752,6 @@ body {
     .rightbox {
         width: 90%;
         text-align: center;
-
     }
 
     #section2 .contentbox:nth-child(4) .leftbox::after {
@@ -724,6 +782,7 @@ body {
     #section3 p {
         width: 80%;
         text-align: center;
+        padding-top: 50px;
     }
 
 
@@ -794,13 +853,13 @@ body {
         justify-content: center;
         flex-wrap: wrap;
         padding: 100px 0;
+        background-size: 1260px;
 
     }
 
 
     .nomi_logo {
-        width: 80%;
-        height: 10%;
+        width: 500px;
     }
 
     .nomi_logo img {
@@ -811,7 +870,6 @@ body {
 
     .slide_wrap {
         width: 100%;
-        height: 90%;
         padding-top: 0;
     }
 
@@ -1006,6 +1064,7 @@ body {
     }
 
     .rightbox p {
+
         font-size: 14px;
         line-height: 24px;
         font-weight: 700;
@@ -1023,10 +1082,9 @@ body {
         font-size: 14px;
 
     }
-
-
-
-
+    #section3 p{
+        padding-top: 50px;
+    }
 
 
 
@@ -1048,9 +1106,13 @@ body {
 
         width: 300px;
         height: 300px;
-
-
     }
+
+
+
+
+
+
 
     .fixedbox_wrap {
         height: 50px;
