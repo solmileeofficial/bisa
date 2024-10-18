@@ -27,10 +27,10 @@
                 </h1>
                 <!-- gnb -->
                 <ul class="gnb">
-                    <li><a href="#">시상식 소개</a></li>
-                    <li><a href="#">제1회 BISA</a></li>
-                    <li><a href="#">MC LINEUP</a></li>
-                    <li><a href="#">후보 작품</a></li>
+                    <li><a href="#section1">시상식 소개</a></li>
+                    <li><a href="#section2">제1회 BISA</a></li>
+                    <li><a href="#section4">MC LINEUP</a></li>
+                    <li><a href="#section5">후보 작품</a></li>
                 </ul>
                 <!-- m_menu -->
                 <div id="m_nav">
@@ -39,10 +39,10 @@
                     </div>
                     <div class="m_menu">
                         <ul class="m_gnb">
-                            <li><a href="#">시상식 소개</a></li>
-                            <li><a href="#">제1회 BISA</a></li>
-                            <li><a href="#">MC LINEUP</a></li>
-                            <li><a href="#">후보 작품</a></li>
+                            <li><a href="#section1">시상식 소개</a></li>
+                            <li><a href="#section2">제1회 BISA</a></li>
+                            <li><a href="#section4">MC LINEUP</a></li>
+                            <li><a href="#section5">후보 작품</a></li>
                         </ul>
                     </div>
                 </div>
@@ -178,10 +178,11 @@
         </p>
     </div>
     <div id="section4">
-        <div class="trophy img_tag">
+        <div class="inner_section4">
+             <div class="trophy img_tag">
             <img src="images/trophy.png" alt="trophy">
         </div>
-        <h2>
+        <h2 class="mclineup_title">
             mc lineup
         </h2>
         <div class="mclineup">
@@ -224,6 +225,8 @@
 
 
         </div>
+        </div>
+       
 
     </div>
     <div id="section5">
@@ -253,6 +256,11 @@
                         <div class="swiper-slide">
                             <div class="slide_img">
                                 <img src="images/net4.jpg" alt="net1">
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="slide_img">
+                                <img src="images/net5.jpg" alt="net1">
                             </div>
                         </div>
                     </div>
@@ -286,7 +294,12 @@
                         </div>
                         <div class="swiper-slide">
                             <div class="slide_img">
-                                <img src="images/tv1.jpg" alt="net1">
+                                <img src="images/tv4.jpg" alt="net1">
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="slide_img">
+                                <img src="images/tv5.jpg" alt="net1">
                             </div>
                         </div>
                     </div>
@@ -310,17 +323,22 @@
                         </div>
                         <div class="swiper-slide">
                             <div class="slide_img">
-                                <img src="images/wa2.jpg" alt="net1">
+                                <img src="images/wa2.jpg" alt="net2">
                             </div>
                         </div>
                         <div class="swiper-slide">
                             <div class="slide_img">
-                                <img src="images/wa3.jpg" alt="net1">
+                                <img src="images/wa3.jpg" alt="net3">
                             </div>
                         </div>
                         <div class="swiper-slide">
                             <div class="slide_img">
-                                <img src="images/wa1.jpg" alt="net1">
+                                <img src="images/wa4.jpg" alt="net4">
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="slide_img">
+                                <img src="images/wa5.jpg" alt="net5">
                             </div>
                         </div>
                     </div>
@@ -467,7 +485,7 @@
             effect: "coverflow",
             grabCursor: true,
             centeredSlides: true,
-            slidesPerView: "4",
+            slidesPerView: "5",
             loop: true,
             coverflowEffect: {
                 rotate: 50,
@@ -550,6 +568,32 @@
 });
 
     </script>
+   <script>
+    // Intersection Observer 생성
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible'); // 요소가 보일 때 visible 클래스 추가
+                observer.unobserve(entry.target); // 한 번 보이면 더 이상 관찰하지 않음
+            }
+        });
+    }, { threshold: 0.1 }); // 요소가 10% 보이면 애니메이션 실행
+
+    // h2 요소에 fade-in 애니메이션 적용
+    const heading = document.querySelector('h2');
+    heading.classList.add('fade-in');
+    observer.observe(heading);
+
+    // mc_pic 요소들에 순서대로 fade-in-left 애니메이션 적용
+    const mcPics = document.querySelectorAll('.mc_pic');
+    mcPics.forEach((mcPic, index) => {
+        mcPic.classList.add('fade-in-left');
+        mcPic.style.transitionDelay = `${index * 0.3}s`; // 각 mc_pic에 순차적으로 딜레이 적용
+        observer.observe(mcPic);
+    });
+</script>
+
+
 </body>
 
 </html>
