@@ -98,6 +98,7 @@
 
 
     </div>
+    
     <div id="section2">
         <div class="contentbox">
             <div class="leftbox">
@@ -171,12 +172,18 @@
 
         </div>
     </div>
+    
     <div id="section3">
-        <p>
-            The Busan International <br>
-            Series Award
-        </p>
+        <div>
+            <p>
+                The Busan International <br>
+                Series Award
+            </p>
+        
+        </div>
+
     </div>
+
     <div id="section4">
         <div class="inner_section4">
              <div class="trophy img_tag">
@@ -229,6 +236,7 @@
        
 
     </div>
+    
     <div id="section5">
         <div class="nominated nomi1">
             <div class="nomi_logo netflix">
@@ -352,6 +360,7 @@
 
 
     </div>
+    
     <div id="footer">
         <div class="inner_footer">
 
@@ -362,23 +371,35 @@
                     </h2>
                     <ul class="footer_top">
                         <li>
-                            방송
-                        </li>
+                            <ul>
+                                <li>
+                                    방송
+                                </li>
+                                <li>
+                                    <div class="footer_img img_tag">
+                                        <img src="images/footer_tvn.svg" alt="tvn">
+                                    </div>
+                                </li>
+                                </li>
+                            </ul>
                         <li>
-                            <div class="footer_img img_tag">
-                                <img src="images/footer_tvn.svg" alt="tvn">
-                            </div>
+                            <ul>
+                                <li>
+                                디지털중계
+                            </li>
+                            <li>
+                                <div class="footer_img img_tag">
+                                    <img src="images/footer_wav.svg" alt="wavve">
+                                </div>
+                            </ul>
+                   
+                            </li>
                         </li>
-                        <li>
-                            디지털중계
-                        </li>
-                        <li>
-                            <div class="footer_img img_tag">
-                                <img src="images/footer_wav.svg" alt="wavve">
-                            </div>
-                        </li>
-
+                        
+                
                     </ul>
+           
+
 
                 </div>
                 <p>
@@ -429,6 +450,7 @@
 
         </div>
     </div>
+
     <div class="fixedbox_wrap">
         <ul class="fixedbox">
             <li>
@@ -499,99 +521,101 @@
             },
         });
     </script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-    // Intersection Observer 설정
-    const observerOptions = {
-        threshold: 0.1
-    };
 
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('show');
-                observer.unobserve(entry.target); // 이미 보여진 요소는 다시 감시할 필요가 없으므로 unobserve
-            }
-        });
-    }, observerOptions);
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+// Intersection Observer 설정
+const observerOptions = {
+    threshold: 0.1
+};
 
-    // section1의 intro_content에 대한 감시 설정
-    const introContent = document.querySelector('.intro_content');
-    if (introContent) {
-        introContent.classList.add('hidden'); // 초기 상태에서 숨김
-        observer.observe(introContent);
-    }
-
-    // section2의 contentbox에 대한 감시 설정 (순차적 애니메이션 적용)
-    const contentBoxes = document.querySelectorAll('#section2 .contentbox');
-    contentBoxes.forEach((box, index) => {
-        box.classList.add('hidden'); // 초기 상태에서 숨김
-        observer.observe(box);
+const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+            observer.unobserve(entry.target); // 이미 보여진 요소는 다시 감시할 필요가 없으므로 unobserve
+        }
     });
+}, observerOptions);
+
+// section1의 intro_content에 대한 감시 설정
+const introContent = document.querySelector('.intro_content');
+if (introContent) {
+    introContent.classList.add('hidden'); // 초기 상태에서 숨김
+    observer.observe(introContent);
+}
+
+// section2의 contentbox에 대한 감시 설정 (순차적 애니메이션 적용)
+const contentBoxes = document.querySelectorAll('#section2 .contentbox');
+contentBoxes.forEach((box, index) => {
+    box.classList.add('hidden'); // 초기 상태에서 숨김
+    observer.observe(box);
+});
 });
 
-    </script>
-    <script>
-   document.addEventListener("DOMContentLoaded", function() {
-    const logo = document.querySelector('.title.img_tag img'); // 로고 이미지 선택
-    const pElement = document.querySelector('.intro_content p');
-    const text = pElement.textContent.trim();
-    const letters = text.split('').map(letter => `<span>${letter}</span>`);
-    pElement.innerHTML = letters.join('');
-
-    // 로고와 텍스트에 숨김 클래스 추가
-    logo.classList.add('hidden');
-    pElement.classList.add('hidden');
-
-    // Intersection Observer 설정
-    const observerOptions = {
-        threshold: 0.1
-    };
-
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                if (entry.target === logo) {
-                    logo.classList.add('show'); // 로고 먼저 나타남
-                    observer.unobserve(logo); // 로고는 한 번만 나타나게 설정
-                } else if (entry.target === pElement) {
-                    pElement.classList.add('show'); // 텍스트가 이어서 나타남
-                    observer.unobserve(pElement); // 텍스트도 한 번만 나타나게 설정
-                }
-            }
-        });
-    }, observerOptions);
-
-    // 로고와 텍스트에 대해 감시 설정
-    observer.observe(logo);
-    observer.observe(pElement);
-});
-
-    </script>
-   <script>
-    // Intersection Observer 생성
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible'); // 요소가 보일 때 visible 클래스 추가
-                observer.unobserve(entry.target); // 한 번 보이면 더 이상 관찰하지 않음
-            }
-        });
-    }, { threshold: 0.1 }); // 요소가 10% 보이면 애니메이션 실행
-
-    // h2 요소에 fade-in 애니메이션 적용
-    const heading = document.querySelector('h2');
-    heading.classList.add('fade-in');
-    observer.observe(heading);
-
-    // mc_pic 요소들에 순서대로 fade-in-left 애니메이션 적용
-    const mcPics = document.querySelectorAll('.mc_pic');
-    mcPics.forEach((mcPic, index) => {
-        mcPic.classList.add('fade-in-left');
-        mcPic.style.transitionDelay = `${index * 0.3}s`; // 각 mc_pic에 순차적으로 딜레이 적용
-        observer.observe(mcPic);
-    });
 </script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+const logo = document.querySelector('.title.img_tag img'); // 로고 이미지 선택
+const pElement = document.querySelector('.intro_content p');
+const text = pElement.textContent.trim();
+const letters = text.split('').map(letter => `<span>${letter}</span>`);
+pElement.innerHTML = letters.join('');
+
+// 로고와 텍스트에 숨김 클래스 추가
+logo.classList.add('hidden');
+pElement.classList.add('hidden');
+
+// Intersection Observer 설정
+const observerOptions = {
+    threshold: 0.1
+};
+
+const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            if (entry.target === logo) {
+                logo.classList.add('show'); // 로고 먼저 나타남
+                observer.unobserve(logo); // 로고는 한 번만 나타나게 설정
+            } else if (entry.target === pElement) {
+                pElement.classList.add('show'); // 텍스트가 이어서 나타남
+                observer.unobserve(pElement); // 텍스트도 한 번만 나타나게 설정
+            }
+        }
+    });
+}, observerOptions);
+
+// 로고와 텍스트에 대해 감시 설정
+observer.observe(logo);
+observer.observe(pElement);
+});
+
+</script>
+<script>
+// Intersection Observer 생성
+const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible'); // 요소가 보일 때 visible 클래스 추가
+            observer.unobserve(entry.target); // 한 번 보이면 더 이상 관찰하지 않음
+        }
+    });
+}, { threshold: 0.1 }); // 요소가 10% 보이면 애니메이션 실행
+
+// h2 요소에 fade-in 애니메이션 적용
+const heading = document.querySelector('h2');
+heading.classList.add('fade-in');
+observer.observe(heading);
+
+// mc_pic 요소들에 순서대로 fade-in-left 애니메이션 적용
+const mcPics = document.querySelectorAll('.mc_pic');
+mcPics.forEach((mcPic, index) => {
+    mcPic.classList.add('fade-in-left');
+    mcPic.style.transitionDelay = `${index * 0.3}s`; // 각 mc_pic에 순차적으로 딜레이 적용
+    observer.observe(mcPic);
+});
+</script>
+
 
 
 </body>
