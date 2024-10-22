@@ -1119,9 +1119,9 @@ body {
     }
 
     #section3 p {
-        width: 90%;
+        width: 100%;
         text-align: center;
-       
+       padding-top:100px
         padding-left: 0;
     }
 
